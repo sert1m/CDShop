@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru">
+	<head>
+		<meta name="description" content="Main form of a site, that contains header, menu and main content" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>CDShop</title>
+		
+		<link href="./css/menu.css" rel="stylesheet"/>
+		<link href="./css/light.css" rel="stylesheet" id="style"/>
+		
+		<script src="./js/menu.js"></script>
+		<script type="text/javascript" src="./js/jquery-1.8.2.min.js"></script>
+		<script>
+		//functionality for displaying select item in menu
+		$(document).ready(function(){
+			$(".main").click(function(){
+				$( ".catalog" ).removeClass('current');
+				$( ".cart" ).removeClass('current');
+				$( ".changestyle" ).removeClass('current');
+			});
+				
+			$(".catalog").click(function(){
+				$( ".main" ).removeClass('current');
+				$( ".cart" ).removeClass('current');
+				$( ".changestyle" ).removeClass('current');
+			});
+				
+			$(".cart").click(function(){
+				$( ".main" ).removeClass('current');
+				$( ".catalog" ).removeClass('current');
+				$( ".changestyle" ).removeClass('current');
+			});
+			
+			$(".changestyle").click(function(){
+				$( ".main" ).removeClass('current');
+				$( ".catalog" ).removeClass('current');
+				$( ".cart" ).removeClass('current');
+			});
+		});
+		</script>
+	</head>
+	<body>
+	
+		<div class="header">
+			<h1 align="center">Магазин CD-дисков</h1>
+			<hr/>
+		</div>		
+			
+		<ul class="menu">
+			<li><a href="#" onclick="mainOnClick(); this.className += ' current';" 		class="main">		Главная		</a></li>
+			<li><a href="#" onclick="catalogOnClick(); this.className += ' current';" 	class="catalog">	Каталог		</a></li>
+			<li><a href="#" onclick="cartOnClick(); this.className += ' current';" 		class="cart">		Корзина		</a></li>
+			<li><a href="#" onclick="changeStyle(); this.className += ' current';" 		class="changestyle">Смена стиля	</a></li>
+		</ul>
+		
+		<iframe id="content" src="description.jsp" frameborder=0 class="content"/>
+	</body>
+</html>
